@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- Main Style File -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body>
+    <div class="control-buttons">
+      <span>Start Game</span>
+    </div>
+    <div id="win-screen" class="win-screen">
+      <div>You Won</div>
+      <div id="your-time"></div>
+    </div>
+    <div id="another-game-btn">Play Another Game?</div>
+    <div class="info-container">
+      <div class="name">Hello: <span></span></div>
+      <div class="stopwatch">00:00:000</div>
+      <div class="tries">Wrong Tries: <span>0</span></div>
+    </div>
+    <div class="memory-game-blocks">
+      <div class="game-block" data-animal="cat">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/1.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="cat">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/1.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="zibra">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/2.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="zibra">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/2.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="rabit">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/3.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="rabit">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/3.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="mouse">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/4.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="mouse">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/4.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="elphanet">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/5.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="elphanet">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/5.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="chicken">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/6.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="chicken">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/6.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="penguin">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/7.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="penguin">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/7.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="zib">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/8.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="zib">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/8.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="dog">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/9.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="dog">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/9.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="konfz">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/10.png" alt="" />
+        </div>
+      </div>
+      <div class="game-block" data-animal="konfz">
+        <div class="face front"></div>
+        <div class="face back">
+          <img src="imgs/10.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <table class="result-table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Time</th>
+          <th>Wrong Tries</th>
+        </tr>
+      </thead>
+      <tbody id="player-table-body"></tbody>
+    </table>
+    <canvas id="my-canvas"></canvas>
+
+    <audio id="success" src="audio/success.mp3" preload="auto"></audio>
+    <audio id="fail" src="audio/faild.mp3" preload="auto"></audio>
+    <audio id="win" src="audio/won.mp3" preload="auto"></audio>
+    <script src="index.min.js"></script>
+    <script src="JS/script.js"></script>
+  </body>
+</html>
